@@ -1,60 +1,41 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Person from './Person/Person';
 
 class App extends Component {
   state = {
     persons: [
-      {name: "Valentina", age:11},
-      {name: "Alessia", age:8},
-      {name:"Filippa", age:4}
-    ]
+      {id:'ghgw', name: "Valentina", age:11},
+      {id:'kfhf', name: "Alessia", age:8},
+      {id:'gfhs', name:"Filippa", age:4}
+    ],
+    showpersons: true
   };
   
-  switchNameHandler = (newName) => {
-    this.setState({
-      persons: [
-        {name: newName, age:11},
-        {name: "Alessia", age:8},
-        {name:"Filippa", age:4}
-      ]
-    });
-  };
-
-  nameChangedHandler = (event) =>  {
-    this.setState({
-      persons: [
-        {name: "Valentina", age:11},
-        {name: event.target.value, age:8},
-        {name:"Filippa", age:4}
-      ]
-    });
+  toggleNameHandler = () => {
+    const s = this.state.showpersons;
+    this.setState({showpersons: !s});
   };
 
   render() {
+    let person = null;
+
+    if (this.state.showpersons) {
+      person = (
+        <div>
+          {this.state.persons.map(person => {
+            return <Person name={person.name} age={person.age} key={person.id}/>
+          })}
+        </div>
+      );
+    };
+
     return (
       <div className="App">
         <h1>Hello world</h1>
         <p>This is really working</p>
-        <button onClick={this.switchNameHandler.bind(this,'Vaal')}>Switch Name</button>
-        <Person 
-          name={this.state.persons[0].name} 
-          age={this.state.persons[0].age}>
-          Sweet
-        </Person>
-        <Person 
-          name={this.state.persons[1].name} 
-          age={this.state.persons[1].age}
-          click={this.switchNameHandler.bind(this,'Tina')}
-          change={this.nameChangedHandler}>
-          Active
-        </Person>
-        <Person 
-          name={this.state.persons[2].name} 
-          age={this.state.persons[2].age}>
-          Smart
-        </Person>
+        <button onClick={this.toggleNameHandler}>Toggle Name</button>
+        {person}
       </div>
     );
   }
