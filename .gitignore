@@ -1,19 +1,14 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-#/section3/node_modules
 **/node_modules
-#/section3/.pnp
 **/.pnp
-#/section3/.pnp.js
 .pnp.js
 
 # testing
-#/section3/coverage
 **/coverage
 
 # production
-#/section3/build
 **/build
 
 # misc
