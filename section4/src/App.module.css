@@ -1,0 +1,26 @@
+.App {
+    text-align: center;
+  }
+
+.App button {
+    border: 1px solid gray;
+    background-color: green;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.App button:hover {
+    border: 3px solid red;
+}
+
+.App button:focus {
+    color:white;
+}
+.App button.Red {
+    background-color: red;
+}
+
+.App button.Red:hover {
+    border: 3px solid orange;
+}

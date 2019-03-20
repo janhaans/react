@@ -1,0 +1,14 @@
+.Person {
+    border: 1px solid  gray;
+    width: 40%;
+    margin: 10px auto;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: lightgrey;
+    color: black;
+    cursor: pointer;
+}
+
+.Person:hover {
+    border: 3px solid red;
+}
