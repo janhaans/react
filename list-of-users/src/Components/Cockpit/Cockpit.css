@@ -7,5 +7,11 @@
 }
 
 .Button {
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
     cursor: pointer;
+    transition: all;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in;
 }
