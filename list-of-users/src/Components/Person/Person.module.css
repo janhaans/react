@@ -1,0 +1,26 @@
+.Person {
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin: 10px auto;
+    padding: 10px;
+    width: 600px;
+}
+
+.Person label {
+    font-size: 0.7rem; 
+}
+
+.Person input {
+    cursor: pointer;
+}
+
+.Person input:hover {
+    border: 1px solid red;
+}
+
+.Person button {
+    display: block;
+    margin: 10px auto;
+    background-color: red;
+    cursor: pointer;
+}

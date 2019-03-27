@@ -14,9 +14,6 @@
     border: 3px solid red;
 }
 
-.App button:focus {
-    color:white;
-}
 .App button.Red {
     background-color: red;
 }
