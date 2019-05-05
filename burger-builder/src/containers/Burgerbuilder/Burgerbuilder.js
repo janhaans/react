@@ -6,7 +6,7 @@ import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 const INGREDIENTS_PRICES = {
     salad: 0.2,
     bacon: 0.5,
-    chees: 0.4,
+    cheese: 0.4,
     meat: 1.3
 };
 
@@ -36,7 +36,7 @@ class Burgerbuilder extends Component {
         let updatedIngredients = {...this.state.ingredients};
         if (updatedIngredients[type]>0) {
             updatedIngredients[type]--;
-            let updatedPrice = this.state.price +INGREDIENTS_PRICES[type];
+            let updatedPrice = this.state.price - INGREDIENTS_PRICES[type];
             this.setState({
                 ingredients: updatedIngredients,
                 price: updatedPrice
@@ -50,6 +50,15 @@ class Burgerbuilder extends Component {
         for (let key in disabledKeys) {
             disabledKeys[key] = disabledKeys[key] <= 0;
         }
+
+        const ingredients = {...this.state.ingredients};
+        const sum = Object.keys(ingredients)
+                .map( ingredient => ingredients[ingredient])
+                .reduce( (acc, cur) => acc+cur ,0);
+        const purchaseable = sum > 0;
+        console.log(sum);
+        console.log(purchaseable);
+
         return (
             <Aux>
                 <Burger ingredients={this.state.ingredients}/>
@@ -57,6 +66,8 @@ class Burgerbuilder extends Component {
                     ingredientAdded={this.addIngredient}
                     ingredientRemoved={this.removeIngredient}
                     disabledKeys = {disabledKeys}
+                    price = {this.state.price}
+                    purchaseable = {purchaseable}
                 />
             </Aux>
         );
